@@ -23,46 +23,50 @@
 
 1. Implement the action
 
-Example of action: <https://openwhisk.apache.org/documentation.html#go>
+  - Example of action: <https://openwhisk.apache.org/documentation.html#go>
 
 2. Upload the action file
 
-`$ wsk action create helloGo hello.go`
+  `$ wsk action create helloGo hello.go`
 
 3. Invoke the action
 
-`$ wsk action invoke helloGo -r -p name gopher`
+  `$ wsk action invoke helloGo -r -p name gopher`
 
-4. Deploy the action using the *Whisk Deploy*
+4. Deploy the action and API using the *Whisk Deploy*
 
   - Create the manifest file
 
   - Run the deployment
   
   `$ wskdeploy -m manifest.yaml`
+  
+5. See the list of APIS
+
+  `$ wsk api list`
 
 5. See the actions, edit the code or invoke the action in the "IBM Cloud Functions - Actions" page
 
-<https://cloud.ibm.com/functions/actions>
+  <https://cloud.ibm.com/functions/actions>
 
 ## Deploying actions with IBM Cloud tools (Option)
 
 1. Implement the action
 
-Example of action: <https://github.com/IBM/ibm-cloud-functions-action-trigger-rule>
+  - Example of action: <https://github.com/IBM/ibm-cloud-functions-action-trigger-rule>
 
 2. Poll the activation log *(optional)*
 
-`$ ibmcloud fn activation poll` 
+  `$ ibmcloud fn activation poll` 
 
 3. Upload the action file as a Cloud Function *(in another terminal)*
 
-`$ ibmcloud fn action create handler handler.js `
+  `$ ibmcloud fn action create handler handler.js `
 
 4. Invoke the action manually
 
-`$ ibmcloud fn action invoke --blocking handler`
+  `$ ibmcloud fn action invoke --blocking handler`
 
 5. See the actions, edit the code or invoke the action in the "IBM Cloud Functions - Actions" page
 
-<https://cloud.ibm.com/functions/actions>
+  <https://cloud.ibm.com/functions/actions>
