@@ -21,19 +21,19 @@
   
 ## Deploying actions with Apache OpenWhisk
 
-1. Implement the action
+1. Implement the action/function
 
   - Example of action: <https://openwhisk.apache.org/documentation.html#go>
 
-2. Upload the action file
+2. Upload the action code to the platform
 
   `$ wsk action create helloGo hello.go`
 
-3. Invoke the action
+3. Invoke the action (-r shows the result and -p pass the parameters)
 
   `$ wsk action invoke helloGo -r -p name gopher`
 
-4. Deploy the action and API using the *Whisk Deploy*
+4. Deploying the action and an API using the *Whisk Deploy*
 
   - Create the manifest file
 
@@ -41,25 +41,25 @@
   
   `$ wskdeploy -m manifest.yaml`
   
-5. See the list of APIS
+Command to list the available APIS
 
   `$ wsk api list`
 
-5. See the actions, edit the code or invoke the action in the "IBM Cloud Functions - Actions" page
+In the "IBM Cloud Functions - Actions" page it is possible to manage all the functions features (actions/apis/triggers/monitoring).
 
   <https://cloud.ibm.com/functions/actions>
 
-## Deploying actions with IBM Cloud tools (Option)
+## Deploying actions with IBM Cloud tools (Alternative)
 
 1. Implement the action
 
   - Example of action: <https://github.com/IBM/ibm-cloud-functions-action-trigger-rule>
 
-2. Poll the activation log *(optional)*
+2. Poll the activation log to see what is happening *(optional)*
 
   `$ ibmcloud fn activation poll` 
 
-3. Upload the action file as a Cloud Function *(in another terminal)*
+3. Upload the action file as a Cloud Function *(in a terminal different from the log poll)*
 
   `$ ibmcloud fn action create handler handler.js `
 
@@ -67,6 +67,10 @@
 
   `$ ibmcloud fn action invoke --blocking handler`
 
-5. See the actions, edit the code or invoke the action in the "IBM Cloud Functions - Actions" page
+5. Deploying the action and a trigger via shell script *(the IBM Cloud tooling does not have a deploy tool like Whisk Deploy)*
+
+  `$ ./deploy.sh --install`
+
+In the "IBM Cloud Functions - Actions" page it is possible to manage all the functions features (actions/apis/triggers/monitoring).
 
   <https://cloud.ibm.com/functions/actions>
